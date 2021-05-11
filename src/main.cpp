@@ -1,25 +1,28 @@
-
-
-
-#include <iostream>
 #include <string>
+#include <list>
+
 #include "People.h"
+#include "PeopleList.h"
 
 using namespace std;
 
 
-
-
-
-
 int main()
 {
-  std::string value = "Hello Pooh\n";
-  cout << value;
 
-  People pooh = People("Pooh Bear", 42, "cake");
+  PeopleList peoplelist;
+  peoplelist.loadCSV("data/test1.csv");
 
-  cout << "Hello " << pooh << "\n";
+  PeopleList sortedPeople = peoplelist;
+  sortedPeople.sort();
+
+  for (People p : peoplelist) {
+        std::cout << "saved: " << p ;
+  }
+
+  for (People p : sortedPeople) {
+        std::cout << "sorted: " << p ;
+  }
 
   return 0;
 }

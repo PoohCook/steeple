@@ -2,8 +2,8 @@ CC = g++
 CPPFLAGS = -g -Wall -std=c++11 -pthread -iquote inc 
 LFLAGS = -Wall 
 
-DEPS = inc/People.h inc/Logger.h
-OBJ = obj/People.o
+DEPS = inc/People.h inc/PeopleList.h inc/Logger.h
+OBJ = obj/People.o obj/PeopleList.o
 # TEST = obj/TestWorker.o 
 MUTED = -DDIAG_MESSAGES
 

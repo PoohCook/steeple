@@ -8,13 +8,17 @@
  #ifndef People_H
  #define People_H
 
-#include <string>
+#include <fstream>
 #include <iostream>
+#include <sstream>
+#include <string>
 
-class People
-{
+
+class People{
+
 public:
   friend std::ostream& operator<< (std::ostream& o, People const& people);
+  friend std::istream& operator>> (std::istream& i, People& fred);
  
 private:
   std::string  name;
@@ -22,9 +26,15 @@ private:
   std::string cake_or_cookie;
 
 public:
+  People(){};
+  
   People(std::string  name, int age, std::string cake_or_cookie)
   : name(name), age(age), cake_or_cookie(cake_or_cookie){
 
+  }
+
+  bool operator< (const People& p) const {
+      return (age < p.age); 
   }
 
 };
