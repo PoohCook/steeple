@@ -37,6 +37,12 @@ public:
       return (age < p.age); 
   }
 
+  std::string str(){
+    std::ostringstream ss;
+    ss << *this;
+    return ss.str();
+  }
+
 };
 
 
