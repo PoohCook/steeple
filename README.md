@@ -17,3 +17,21 @@ to make sure you have the required pip dependencies installed:
 ```
     pip3 install -r requirements.txt
 ```
+
+make sure that gcc is installed abd boost lib
+
+```
+    on Linux:
+    sudo make boost
+
+    on OSX 
+    brew install boost
+
+```
+
+To runtest framework 
+
+```
+    make test
+    
+```
