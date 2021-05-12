@@ -49,6 +49,7 @@ jobs:
           name: run tests
           command: |
             gcc --version
+            sudo make boostlib
             make test
 
       - store_artifacts:
