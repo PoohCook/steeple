@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/python:3.6.1
+      - image: dockerben/cpptemplate:latest
 
     working_directory: ~/repo
 
