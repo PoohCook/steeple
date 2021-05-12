@@ -14,35 +14,35 @@ jobs:
     steps:
       - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "requirements.txt" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+      # # Download and cache dependencies
+      # - restore_cache:
+      #     keys:
+      #     - v1-dependencies-{{ checksum "requirements.txt" }}
+      #     # fallback to using the latest cache if no exact match is found
+      #     - v1-dependencies-
 
-      - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install --upgrade pip
-            pip install -r requirements.txt
-            sudo apt-get update
-            sudo apt-get install g++
-            sudo apt-get install build-essential
-            sudo make boostlib
-            #  sudo apt-get install python-dev libxml2-dev libxslt-dev
-            #  sudo mkdir -p /usr/local/include/python3.6
-            #  sudo cp /usr/include/python2.7/* /usr/local/include/python3.6/
-            #  find /usr -name pyconfig.h
+      # - run:
+      #     name: install dependencies
+      #     command: |
+      #       python3 -m venv venv
+      #       . venv/bin/activate
+      #       pip install --upgrade pip
+      #       pip install -r requirements.txt
+      #       sudo apt-get update
+      #       sudo apt-get install g++
+      #       sudo apt-get install build-essential
+      #       sudo make boostlib
+      #       #  sudo apt-get install python-dev libxml2-dev libxslt-dev
+      #       #  sudo mkdir -p /usr/local/include/python3.6
+      #       #  sudo cp /usr/include/python2.7/* /usr/local/include/python3.6/
+      #       #  find /usr -name pyconfig.h
 
-      - save_cache:
-          paths:
-             - ./venv
-             - ./boostlib
+      # - save_cache:
+      #     paths:
+      #        - ./venv
+      #        - ./boostlib
 
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
+      #     key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       # run tests!
       - run:
