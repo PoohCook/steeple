@@ -8,6 +8,8 @@ This project contains an example C++ project for oganizing people
     
 ```
 
+- Note: teh test called for this class to be called person but Pooh just couldn't use a plural for a class that is funndementaly an instance
+
 
 # Stuff
 
