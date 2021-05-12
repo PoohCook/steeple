@@ -51,7 +51,6 @@ public:
     return _cake_or_cookie;
   }
 
-
   std::string str(){
     std::ostringstream ss;
     ss << *this;
