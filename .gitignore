@@ -58,3 +58,5 @@ venv.bak/
 *.so
 *.a
 *.out
+main*
+testrunner*
