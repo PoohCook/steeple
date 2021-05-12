@@ -27,14 +27,14 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-           sudo apt-get update
-           sudo apt-get install g++
-           sudo apt-get install build-essential
-          #  sudo apt-get install python-dev libxml2-dev libxslt-dev
-          #  sudo mkdir -p /usr/local/include/python3.6
-          #  sudo cp /usr/include/python2.7/* /usr/local/include/python3.6/
-          #  find /usr -name pyconfig.h
-           sudo make boostlib
+            sudo apt-get update
+            sudo apt-get install g++
+            sudo apt-get install build-essential
+            sudo make boostlib
+            #  sudo apt-get install python-dev libxml2-dev libxslt-dev
+            #  sudo mkdir -p /usr/local/include/python3.6
+            #  sudo cp /usr/include/python2.7/* /usr/local/include/python3.6/
+            #  find /usr -name pyconfig.h
 
       - save_cache:
           paths:
@@ -53,4 +53,3 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
-
