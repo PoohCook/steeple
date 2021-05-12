@@ -31,12 +31,12 @@ boostlib:
 	rm -f /usr/local/lib/libboost*
 	rm -fr /usr/include/boost/
 	rm -fr /usr/local/include/boost/
-	wget https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.gz
-	tar -zxvf boost_1_76_0.tar.gz
-	(cd boost_1_76_0/ && ./bootstrap.sh)
-	(cd boost_1_76_0/ && ./b2 install)
-	rm -rf boost_1_76_0
-	rm boost_1_76_0.tar.gz
+	wget https://boostorg.jfrog.io/artifactory/main/release/1.67.0/source/boost_1_67_0.tar.gz
+	tar -zxvf boost_1_67_0.tar.gz
+	(cd boost_1_67_0/ && ./bootstrap.sh)
+	(cd boost_1_67_0/ && ./b2 install)
+	rm -rf boost_1_67_0
+	rm boost_1_67_0.tar.gz
 	find /usr/ -name text_iarchive.hpp
 	mkdir -p boostlib
 	mkdir -p boostlib/lib
