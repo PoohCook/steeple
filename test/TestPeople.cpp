@@ -5,42 +5,67 @@
  * Created on May 12, 2021
  */
 
-
 #include <string>
 #include <iostream>
 #include <boost/test/unit_test.hpp>
 
-#include "People.h"
+#include "Person.h"
 #include "PeopleList.h"
-
 
 using namespace std;
 
 BOOST_AUTO_TEST_CASE( PeopleTest_streamout ){
 
-    People people("Pooh", 42, "hunny");
+    Person person("Pooh", 42, "scone");
 
     std::ostringstream ss;
 
-    ss << people;
+    ss << person;
 
-    BOOST_TEST(ss.str() == "Name: Pooh, age: 42, likes: hunny\n");
+    BOOST_CHECK_EQUAL(ss.str(), "Name: Pooh, age: 42, likes: scone\n");
+    BOOST_CHECK_EQUAL(person.name, "Pooh");
+    BOOST_CHECK_EQUAL(person.age, 42);
+    BOOST_CHECK_EQUAL(person.get_cake_or_cookie(), "scone");
 
 }
 
 BOOST_AUTO_TEST_CASE( PeopleTest_streamin ){
 
-    People people;
+    Person person;
 
-    std::string s = "Bunny,43,carrots";
+    std::string s = "Bunny,43,cake";
     std::istringstream ss(s);
 
-    ss >> people;
+    ss >> person;
 
     std::ostringstream so;
 
-    so << people;
+    so << person;
 
-    BOOST_TEST(so.str() == "Name: Bunny, age: 43, likes: carrots\n");
+    BOOST_CHECK_EQUAL(so.str(), "Name: Bunny, age: 43, likes: cake\n");
+
+}
+
+
+BOOST_AUTO_TEST_CASE( PeopleTest_bad_type ){
+
+    Person person("Pooh", 42, "hunny");
+
+    std::ostringstream ss;
+
+    ss << person;
+
+    BOOST_CHECK_EQUAL(ss.str(), "Name: Pooh, age: 42, likes: \n");
+    BOOST_CHECK_EQUAL(person.name, "Pooh");
+    BOOST_CHECK_EQUAL(person.age, 42);
+    BOOST_CHECK_EQUAL(person.get_cake_or_cookie(), "");
+
+    bool result = person.set_cake_or_cookie("bread");
+    BOOST_CHECK_EQUAL(person.get_cake_or_cookie(), "");
+    BOOST_CHECK(!result);
+
+    result = person.set_cake_or_cookie("cake");
+    BOOST_CHECK_EQUAL(person.get_cake_or_cookie(), "cake");
+    BOOST_CHECK(result);
 
 }

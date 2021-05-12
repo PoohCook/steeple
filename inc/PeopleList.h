@@ -13,10 +13,9 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#include "People.h"
+#include "Person.h"
 
-
-class PeopleList : public std::list<People>{
+class PeopleList : public std::list<Person>{
 
 public:
 
@@ -28,7 +27,7 @@ public:
             if (!getline( infile, s )) break;
 
             std::istringstream ss( s );
-            People person;
+            Person person;
             ss >> person;
             push_back(person);
         }

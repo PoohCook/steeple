@@ -1,7 +1,7 @@
 #include <string>
 #include <list>
 
-#include "People.h"
+#include "Person.h"
 #include "PeopleList.h"
 
 using namespace std;
@@ -16,11 +16,11 @@ int main()
   PeopleList sortedPeople = peoplelist;
   sortedPeople.sort();
 
-  for (People p : peoplelist) {
+  for (Person p : peoplelist) {
         std::cout << "saved: " << p ;
   }
 
-  for (People p : sortedPeople) {
+  for (Person p : sortedPeople) {
         std::cout << "sorted: " << p ;
   }
 
