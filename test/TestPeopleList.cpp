@@ -7,6 +7,7 @@
 
 #include <string>
 #include <iostream>
+#include <chrono>
 #include <boost/test/unit_test.hpp>
 
 #include "Person.h"
@@ -14,6 +15,7 @@
 
 
 using namespace std;
+using namespace std::chrono;
 
 BOOST_AUTO_TEST_CASE( PeopleListTest_loading ){
 
@@ -57,4 +59,33 @@ BOOST_AUTO_TEST_CASE( PeopleListTest_sort ){
     peoplelist.pop_front();
     BOOST_TEST(peoplelist.front().str() == "Name: owl, age: 65, likes: cake\n" );
 
+}
+
+BOOST_AUTO_TEST_CASE( PeopleListTest_bigloading ){
+    
+    auto begin = high_resolution_clock::now();
+
+    PeopleList peoplelist;
+    peoplelist.loadCSV("data/test2.csv");
+
+    BOOST_CHECK_EQUAL(peoplelist.size(), 1000000ul);
+
+    auto mark = high_resolution_clock::now();
+    auto load_time_msec = duration_cast<milliseconds>(mark - begin);
+    begin = mark;
+
+    peoplelist.sort();
+
+    mark = high_resolution_clock::now();
+    auto sort_time_msec = duration_cast<milliseconds>(mark - begin);
+
+    cout << "Load duration: "
+         << load_time_msec.count() << " msec " 
+         << "Sort duration: "
+         << sort_time_msec.count() << " msec "
+         << "Size: "
+         << peoplelist.size()
+         << endl;
+
+    BOOST_TEST( sort_time_msec.count() < 1000 );
 }
