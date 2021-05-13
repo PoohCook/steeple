@@ -47,23 +47,38 @@ BOOST_AUTO_TEST_CASE( PeopleListTest_loading ){
 
 BOOST_AUTO_TEST_CASE( PeopleListTest_sort ){
 
-    PeopleList peoplelist;
-    peoplelist.loadCSV("data/test1.csv");
-    peoplelist.sort();
+    PeopleList peoplelist1;
+    peoplelist1.loadCSV("data/test1.csv");
 
-    BOOST_CHECK_EQUAL(peoplelist.size(), 6ul);
+    PeopleList peoplelist2 = peoplelist1.getSorted();
 
-    BOOST_TEST(peoplelist.front().str() == "Name: piglet, age: 23, likes: cake\n" );
-    peoplelist.pop_front();
-    BOOST_TEST(peoplelist.front().str() == "Name: Rabbit, age: 33, likes: cookies\n" );
-    peoplelist.pop_front();
-    BOOST_TEST(peoplelist.front().str() == "Name: tigger, age: 33, likes: cookies\n" );
-    peoplelist.pop_front();
-    BOOST_TEST(peoplelist.front().str() == "Name: eeyore, age: 35, likes: cake\n" );
-    peoplelist.pop_front();
-    BOOST_TEST(peoplelist.front().str() == "Name: Pooh, age: 42, likes: cake\n" );
-    peoplelist.pop_front();
-    BOOST_TEST(peoplelist.front().str() == "Name: owl, age: 65, likes: cake\n" );
+    //  check original list order
+    BOOST_CHECK_EQUAL(peoplelist1.size(), 6ul);
+    BOOST_TEST(peoplelist1.front().str() == "Name: Pooh, age: 42, likes: cake\n" );
+    peoplelist1.pop_front();
+    BOOST_TEST(peoplelist1.front().str() == "Name: Rabbit, age: 33, likes: cookies\n" );
+    peoplelist1.pop_front();
+    BOOST_TEST(peoplelist1.front().str() == "Name: eeyore, age: 35, likes: cake\n" );
+    peoplelist1.pop_front();
+    BOOST_TEST(peoplelist1.front().str() == "Name: piglet, age: 23, likes: cake\n" );
+    peoplelist1.pop_front();
+    BOOST_TEST(peoplelist1.front().str() == "Name: owl, age: 65, likes: cake\n" );
+    peoplelist1.pop_front();
+    BOOST_TEST(peoplelist1.front().str() == "Name: tigger, age: 33, likes: cookies\n" );
+
+    //  check sorted list order
+    BOOST_CHECK_EQUAL(peoplelist2.size(), 6ul);
+    BOOST_TEST(peoplelist2.front().str() == "Name: piglet, age: 23, likes: cake\n" );
+    peoplelist2.pop_front();
+    BOOST_TEST(peoplelist2.front().str() == "Name: Rabbit, age: 33, likes: cookies\n" );
+    peoplelist2.pop_front();
+    BOOST_TEST(peoplelist2.front().str() == "Name: tigger, age: 33, likes: cookies\n" );
+    peoplelist2.pop_front();
+    BOOST_TEST(peoplelist2.front().str() == "Name: eeyore, age: 35, likes: cake\n" );
+    peoplelist2.pop_front();
+    BOOST_TEST(peoplelist2.front().str() == "Name: Pooh, age: 42, likes: cake\n" );
+    peoplelist2.pop_front();
+    BOOST_TEST(peoplelist2.front().str() == "Name: owl, age: 65, likes: cake\n" );
 
 }
 
@@ -80,7 +95,7 @@ BOOST_AUTO_TEST_CASE( PeopleListTest_bigloading ){
     auto load_time_msec = duration_cast<milliseconds>(mark - begin);
     begin = mark;
 
-    peoplelist.sort();
+    PeopleList peoplelist2 = peoplelist.getSorted();
 
     mark = high_resolution_clock::now();
     auto sort_time_msec = duration_cast<milliseconds>(mark - begin);

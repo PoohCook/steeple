@@ -44,6 +44,14 @@ public:
         return true;
     }
 
+    PeopleList getSorted(){
+
+        PeopleList newList(*this);
+        newList.sort();
+
+        return newList;
+    }
+
 };
 
 
