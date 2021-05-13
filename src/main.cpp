@@ -1,28 +1,37 @@
-#include <string>
-#include <list>
-
-#include "Person.h"
-#include "PeopleList.h"
+#include <iostream>
 
 using namespace std;
 
+void foo(float A[6][6],float b[6], double result[6], int size){
+      int i,j;
+      for(i=0;i<size;i++){		
+            result[i] = 0.0f; 
+            for(j=0;j<size;j++){			
+                  result[i] += ((double)A[i][j]) * ((double)b[j]); 
+            } 
+      } 
+} 
 
-int main()
-{
+#define dimension   6
+int main(){
+    	float F[dimension][dimension]= {
+            {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f},
+            {0.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f},
+            {0.0f, 0.0f, 1.0f, 2.0f, 3.0f, 4.0f},
+            {0.0f, 0.0f, 0.0f, 1.0f, 2.0f, 3.0f},
+            {0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f},
+            {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f},
+      };
+	float x[dimension] = {0.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f}; 	
+      double output[dimension] = {0.0f};
 
-  PeopleList peoplelist;
-  peoplelist.loadCSV("data/test1.csv");
+      foo(F, x, output, dimension); 
 
-  PeopleList sortedPeople = peoplelist;
-  sortedPeople.sort();
+      for( int i=0 ; i<dimension ; i++){
+            cout << output[i] << ", ";
+      }
 
-  for (Person p : peoplelist) {
-        std::cout << "saved: " << p ;
-  }
+      cout << endl;
 
-  for (Person p : sortedPeople) {
-        std::cout << "sorted: " << p ;
-  }
-
-  return 0;
-}
+	return 0; 
+} 

@@ -27,6 +27,9 @@ obj/%.o: test/%.cpp $(DEPS)
 main: $(OBJ) src/main.cpp
 	$(CC) -o $@  $^ $(CPPFLAGS) $(LFLAGS)
 
+run: main
+	./main
+
 test: testRunner
 	./testRunner
 
