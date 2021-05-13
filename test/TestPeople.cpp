@@ -2,6 +2,9 @@
  * File:   TestPeople.cpp
  * Author: Pooh
  *
+ * Test Suite to validate the implementation of the Person class. Using Boost library
+ * because Pooh says every short creature needs a boost
+ * 
  * Created on May 12, 2021
  */
 

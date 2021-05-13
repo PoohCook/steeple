@@ -2,6 +2,15 @@
  * File:   Person.h
  * Author: Pooh
  *
+ * Description: a class to represent people by name, age, and sweet treat likes
+ * The class deviates a bit by being called person but it's not Pooh's style
+ * to use a plural to name a class that represents a sigular entity.
+ * 
+ * liberty was also taken to allow the cake_or_cookie member to encompass being more specific 
+ * about what type of cookie
+ * 
+ * Clean Code Rules
+ * 
  * Created on May 11, 2021
  */
 

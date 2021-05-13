@@ -2,6 +2,12 @@
  * File:   Rectangle.h
  * Author: Pooh
  *
+ * Trying to emulate a C+ Rectangle class from C...  private is not possible in C so that much is lost.
+ * The RECT* paramter to the interface methods is reminisent of how Python handle this (self) 
+ * 
+ * Create adn Destroy methods are provided for dynamic allocation and management. Sorta like new and delete
+ * but not quite as useful...  
+ * 
  * Created on May 12, 2021
  */
 

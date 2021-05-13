@@ -1,6 +1,5 @@
 # Steeple
 
-
 This project contains an example C++ project for oganizing people
 
 ```
@@ -8,7 +7,18 @@ This project contains an example C++ project for oganizing people
     
 ```
 
-- Note: teh test called for this class to be called person but Pooh just couldn't use a plural for a class that is funndementaly an instance
+- Note: the test called for this class to be called person but Pooh just couldn't use a plural for a class that is funndementaly an instance
+
+# See these locations for content
+
+Source Code:
+```
+    ./src     C and C++ code 
+    ./inc     header files
+    ./test    Test suites fo rthe code
+```
+
+This project runs all test suites in CircleCi for all checkins...  A regression is a terrible thing to miss...
 
 
 # Stuff

@@ -2,6 +2,8 @@
  * File:   TestPeople.cpp
  * Author: Pooh
  *
+ * Test suite for the Rectangle faux class. Every peice of code worth doing deserves a test...
+ * 
  * Created on May 12, 2021
  */
 
@@ -25,7 +27,6 @@ BOOST_AUTO_TEST_CASE( RectangleTest_static ){
     BOOST_CHECK_EQUAL(rect.width, 0);
     BOOST_CHECK_EQUAL(rect.height, 0);
     BOOST_CHECK_EQUAL(Rectangle.get_area(&rect), -1);
-
 
 }
 

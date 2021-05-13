@@ -2,6 +2,12 @@
  * File:   TestPeopleList.cpp
  * Author: Pooh
  *
+ * Test Suite to validate the implementation of the PeopleList class. Using Boost library
+ * because Pooh says every short creature needs a boost
+ * 
+ * This tets suite includes a performance bracketing test on the PeopleList sort against a 
+ * million rows... (PeopleListTest_bigloading)
+ * 
  * Created on May 12, 2021
  */
 

@@ -1,8 +1,8 @@
 CC = g++
 C = gcc
-CFLAGS = -g -Wall -std=c11 -pthread -iquote inc
+CFLAGS = -g -Werror -Wall -pedantic-errors -std=c11 -pthread -iquote inc
 
-CPPFLAGS = -g -Wall -std=c++11 -pthread -iquote inc -I boostlib/inc
+CPPFLAGS = -g -Werror -Wall -pedantic-errors -std=c++11 -pthread -iquote inc -I boostlib/inc
 LFLAGS = -Wall -DBOOST_ALL_NO_LIB -DBOOST_ALL_DYN_LINK -DBOOST_LOG_DYN_LINK
 BOOST = -Lboostlib/lib -lboost_unit_test_framework -lboost_system -lboost_serialization -lboost_wserialization \
         -lboost_program_options -lboost_filesystem -Wl,-rpath,'boostlib/lib'
