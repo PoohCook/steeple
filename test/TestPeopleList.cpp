@@ -93,5 +93,5 @@ BOOST_AUTO_TEST_CASE( PeopleListTest_bigloading ){
          << peoplelist.size()
          << endl;
 
-    BOOST_TEST( sort_time_msec.count() < 1200 );
+    BOOST_TEST( sort_time_msec.count() < 1500 );
 }
